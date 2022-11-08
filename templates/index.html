@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}{{ project_name }}{% endblock %}</h1>
+    {{ project_name }} is a dictionary, free for anyone to use.
+{% endblock %}
+
+{% block content %}
+<form method="get" action="{{ url_for("word_redir") }}" class="search">
+    <div class="form-group">
+        <label for="word">Search</label>
+        <input class="form-control" name="word" id="word" placeholder="supercalifragilisticexpialidocious"/>
+    </div>
+    <input class="btn btn-primary" type="submit" name="submit" value="Search">
+</form>
+
+</form>
+{% endblock %}

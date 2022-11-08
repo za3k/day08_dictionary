@@ -1,0 +1,11 @@
+[Unit]
+Description=gunicorn3 for hackaday-08-dictionary
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/hackaday/day08_dictionary
+ExecStart=/bin/gunicorn3 -e SCRIPT_NAME=/hackaday/dictionary --bind 0.0.0.0:8008 app:app
+
+[Install]
+WantedBy=multi-user.target

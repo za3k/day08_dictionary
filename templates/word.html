@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ word }}{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+    {% if definition %}
+        <div class="entry">
+            <div>
+                <a class="word" href="{{ url_for("word", word=word) }}">{{ word }}</a>
+            </div>
+            <span class="source">2019 Webster's Unabridged Dictionary</span>
+            <div class="definition">{{ definition }}</div>
+        </div>
+    {% else %}
+        <div class="entry missing-entry">
+            <div>
+                <a class="word" href="{{ url_for("word", word=word) }}">{{ word }}</a>
+            </div>
+            <div class="definition">No definition found.</div>
+        </div>
+    {% endif %}
+{% endblock %}

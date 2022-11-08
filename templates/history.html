@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h3>{% block title %}Search History{% endblock %}</h3>
+{% endblock %}
+
+{% block content %}
+    <ol class="history">
+    {% for word, present in history %}
+        {% if present %}
+            <li><a href="{{ url_for("word",word=word) }}">{{ word }}</a></li>
+        {% else %}
+            <li><a class="missing-definition" href="{{ url_for("word",word=word) }}">{{ word }}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ol>
+{% endblock %}
